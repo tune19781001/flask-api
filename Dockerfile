@@ -12,5 +12,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Gunicorn で PORT 環境変数を適切に処理
-CMD gunicorn -b 0.0.0.0:$PORT app:app
+CMD ["sh", "-c", "gunicorn -b 0.0.0.0:${PORT} app:app"]
 
