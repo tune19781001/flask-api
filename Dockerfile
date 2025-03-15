@@ -11,9 +11,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # アプリのコードをコピー
 COPY . .
 
-# 環境変数 PORT を設定（Railway のデフォルトを使用）
-ENV PORT=8000
-
-# アプリを実行
-CMD ["sh", "-c", "gunicorn -b 0.0.0.0:${PORT:-8000} app:app"]
+# Gunicorn で PORT 環境変数を適切に処理
+CMD sh -c "gunicorn -b 0.0.0.0:${PORT:-8000} app:app"
 
