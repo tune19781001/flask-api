@@ -1,3 +1,6 @@
+import os
+print(f"PORT ENV VAR: {os.getenv('PORT')}")
+
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
