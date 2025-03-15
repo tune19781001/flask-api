@@ -15,5 +15,5 @@ COPY . .
 ENV PORT=8000
 
 # アプリを実行
-CMD ["gunicorn", "-b", "0.0.0.0:${PORT}", "app:app"]
+CMD exec gunicorn -b 0.0.0.0:${PORT:-8000} app:app
 
